@@ -1,0 +1,99 @@
+\documentclass[a4paper,10pt,twocolumn]{article}
+% \documentclass{ieeeaccess}
+% \documentclass[journal]{IEEEtran}
+
+\usepackage[margin=2cm]{geometry}
+\setlength{\marginparwidth}{1.5cm}
+\usepackage[utf8]{inputenc}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{amsmath}
+\usepackage[pdfusetitle]{hyperref}
+\hypersetup{
+    colorlinks = true,
+    allcolors = {blue}
+}
+\usepackage[noabbrev]{cleveref}
+\usepackage{nicefrac}
+\usepackage{bm}
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{breqn}
+\usepackage[square, comma, sort&compress, numbers]{natbib}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{todonotes}
+\usepackage{mathtools}
+\usepackage{breqn}
+\usepackage[british]{babel}
+\newcommand{\insertref}{\todo[color=magenta!40]{Find ref}}
+\usepackage[printonlyused]{acronym}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{subcaption}
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\DeclareMathOperator{\rot}{\textbf{Rot}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+%%% Make dmath compatible with cref{}
+\makeatletter
+\let\cref@old@eq@setnumber\eq@setnumber
+\def\eq@setnumber{%
+\cref@old@eq@setnumber%
+\cref@constructprefix{equation}{\cref@result}%
+\protected@xdef\cref@currentlabel{%
+[equation][\arabic{equation}][\cref@result]\p@equation\theequation}}
+\makeatother
+
+%%% Hide acronym hyperlinks
+\makeatletter
+\AtBeginDocument{%
+  \renewcommand*{\AC@hyperlink}[2]{%
+    \begingroup
+      \hypersetup{hidelinks}%
+      \hyperlink{#1}{#2}%
+    \endgroup
+  }%
+}
+\makeatother
+
+
+
+%opening
+\begin{document}
+
+\title{Underwater point cloud SLAM navigation using a 3D MEMS-based scanner}
+\author{Miguel~Castillón \href{https://orcid.org/0000-0002-2919-4828}{ID},~Albert~Palomer \href{https://orcid.org/0000-0002-7507-5088}{ID},~Josep~Forest \href{https://orcid.org/0000-0002-4868-5884}{ID}~and~Pere Ridao \href{https://orcid.org/0000-0002-1724-3012}{ID}%
+\thanks{M. Castillón, A. Palomer, J. Forest and P. Ridao are Computer Vision and Robotics Research Institute (VICOROB), University of Girona, 17003 Girona, Spain}%
+\thanks{Corresponding author: M. Castillón (miguel.castillon@udg.edu)}%
+\thanks{This research was founded by the GIRONA1000 project (grant number DPI2017-86372-C3-2-R, by the Spanish Ministry of Science) and EUMR project (grant number H2020-INFRAIA-2017-1-twostage-731103, by the European Commission).}}% <-this % stops a space
+% \thanks{J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
+% \thanks{Manuscript received \today}}
+
+
+\maketitle
+
+% \twocolumn[
+%     \begin{@twocolumnfalse}
+%     \maketitle
+%     \end{@twocolumnfalse}
+% ]
+
+% \input{sections/00_abstract}
+% \input{sections/01_intro}
+% \input{sections/02_related_work}
+% \input{sections/03_model}
+% \input{sections/04_limitations}
+% \input{sections/05_conclusions}
+
+
+\section*{Abbreviations}
+% The following abbreviations are used in this manuscript:
+\input{acronyms.tex}
+ 
+
+\bibliographystyle{IEEEtranN}
+\bibliography{library}
+
+
+\end{document}
